@@ -28,6 +28,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    contentBase: './dist',
+  },
   optimization: {
    usedExports: true,
  },
