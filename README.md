@@ -15,4 +15,4 @@ application to see the results for a medium or even a big size
 application
 
 ## comparaison
-![comparaison-table](url-to-image)
+![comparaison-table](https://github.com/fatehMohamed14/Webpack-vs-Parceljs/blob/main/compare-table.png)
