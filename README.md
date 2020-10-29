@@ -1,15 +1,18 @@
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| -                   |  Webpack                                                                                                  | Parcel                                                                                                                                 |
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| Configuration       | 35 lines of configuration (**webpack.config.js**)                                                         | 0 configuration                                                                                                                        |
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| Loaders and plugins | 4 Dependencies (**html-webpack-plugin**, **clean-webpack-plugin**,**ts-loader**, **webpack-dev-server** ) | no dependencies for my app, Parcel can transform many types by default, like Typescript in my case, no need for a ts loader            |
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| First Build         | 2771 ms                                                                                                   | 6026 ms                                                                                                                                |
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| Second Build        | 2729 ms                                                                                                   | 550 ms (Better caching, second build is very fast)                                                                                     |
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| Bundle size         | 683kb                                                                                                     | 256kb \ **Bundle size is only 96kb when using --experimental-scope-hoisting (an experimental Parcel feature to optimize bundle size)** |
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| Dev Server          | Needs quick config and installation of webpack dev server \ `"dev": "webpack serve"`                      | Parcel support it out of the box \ `"dev": "parcel ./src/index.html"`                                                                  |
-+---------------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+# Webpack vs Parcel
+
+The goal of this comparison is not to say that one of them is the best
+but which one can fit needs of a small application and the time you have
+to do it. I've create a small typescript web application (fetch
+countries and search countries by a given spoken language) using Webpack
+and the same one using Parcel bundler in order to make a comparaison of
+both tools in term of time spent on configuration, build speed, caching,
+code splitting...
+
+\
+ The apps are separated in 2 sub-directories where you can build each
+one and see the result your self, you can add more feature to the
+application to see the results for a medium or even a big size
+application
+
+## comparaison
+![comparaison-table](url-to-image)
