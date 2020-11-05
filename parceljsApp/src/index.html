@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parceljs App</title>
+    <link rel="stylesheet" href="sass/style.scss">
   </head>
   <body>
-    <h1>Countries</h1>
     <button id="lazy-loading-btn">Lazy load module on click</button>
-    <div class="search">
-      <input type="text" name="search" class="form-control" id="search" />
+    <h1>Countries Search System</h1>
+    <div class="action-container">
+      <button class="lang-btn">🌐 Search by language</button> <button class="currency-btn">💰 Search by currency</button>
     </div>
-    <div class="container">
-      <ul id="list-container"></ul>
+    <div class="search-container">
+      <input type="text" name="search" class="search-input" id="search" placeholder="Search" />
+    </div>
+    <div class="country-container">
+      
     </div>
     <script src="./index.ts"></script
   </body>

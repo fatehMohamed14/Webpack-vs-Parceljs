@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+
+$base-color: #23001e;
+$text-color: #ffba49;
+
+body {
+  font-family: "Dosis", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.country-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  > * {
+    margin: 5px 0 0 5px;
+    text-align: center;
+    color: $text-color;
+    background-color: $base-color;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+  }
+}
+
+.search-container {
+  text-align: center;
+  background-color: #77e4e0;
+  border-radius: 0.25rem;
+  margin: 10px auto;
+  padding: 10px;
+  width: 90%;
+}
+
+.search-input {
+  display: block;
+  margin: 0;
+  padding: 0.8rem 1.6rem;
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: inherit;
+  line-height: 1.2;
+  border: none;
+  border-radius: 0.4rem;
+  transition: box-shadow 300ms;
+  box-sizing: border-box;
+}
+.action-container {
+  text-align: center;
+}
+.lang-btn,
+.currency-btn {
+  background-color: $base-color;
+  border: $base-color 1px solid;
+  color: $text-color;
+  padding: 1em 1em;
+  border-radius: 4px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .country-item {
+    flex-basis: 40%;
+  }
+}
+
+@media (min-width: 900px) {
+  .country-item {
+    flex-basis: 20%;
+  }
+}

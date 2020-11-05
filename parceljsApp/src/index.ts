@@ -1,6 +1,6 @@
 import { fromEvent } from "rxjs";
 import { FromEventTarget } from "rxjs/internal/observable/fromEvent";
-import { PersonsService } from "./service/persons.service";
+import { CountryService } from "./service/country.service";
 import { pluck } from "rxjs/operators";
 export interface Language {
   name: string;
@@ -13,11 +13,11 @@ export interface Country {
   [prop: string]: any;
 }
 
-const service = new PersonsService();
-service.getPersons().subscribe((data) => {
-  const container = document.getElementById("list-container");
+const service = new CountryService();
+service.getCountries().subscribe((data) => {
+  const container = document.getElementsByClassName("country-container")[0];
   const list = data.reduce((result: string, item: Country) => {
-    result += `<li><b>Name:</b> ${item?.name} | <b>Age:</b> ${item?.region} | <b>Country:</b> ${item?.languages[0].name}</li>`;
+    result += `<div class="country-item"><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Language: ${item?.languages[0].name}</h2></div>`;
     return result;
   }, "");
   container!.innerHTML = list;
