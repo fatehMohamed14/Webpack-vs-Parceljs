@@ -12,7 +12,7 @@ export default (val: string) => {
           "country-container"
         )[0];
         const list = data.reduce((result: string, item: Country) => {
-          result += `<div class="country-item"><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Language: ${item?.languages[0].name}</h2></div>`;
+          result += `<div class="country-item"><img class="flag" src="${item.flag}"  alt="flag"/><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Language: ${item?.languages[0].name}</h2></div>`;
           return result;
         }, "");
         container!.innerHTML = list;
