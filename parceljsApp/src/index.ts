@@ -7,6 +7,7 @@ import {
   distinctUntilChanged,
   filter,
   pluck,
+  startWith,
   switchMap,
 } from "rxjs/operators";
 export interface Language {
@@ -20,10 +21,12 @@ export interface Country {
   [prop: string]: any;
 }
 
-let selectedSection = "langauge";
+let selectedSection = "language";
 const btnLang = document.getElementsByClassName("lang-btn")[0] as HTMLElement;
 btnLang!.onclick = () => {
   selectedSection = "language";
+  btnLang.classList.add("active");
+  btnCurrency.classList.remove("active");
 };
 
 const btnCurrency = document.getElementsByClassName(
@@ -31,6 +34,8 @@ const btnCurrency = document.getElementsByClassName(
 )[0] as HTMLElement;
 btnCurrency!.onclick = () => {
   selectedSection = "currency";
+  btnCurrency.classList.add("active");
+  btnLang.classList.remove("active");
 };
 
 let input$ = fromEvent(
@@ -39,6 +44,7 @@ let input$ = fromEvent(
 )
   .pipe(
     pluck("target", "value"),
+    startWith("en"),
     filter((val) => {
       return val.trim().length > 1;
     }),
@@ -46,7 +52,7 @@ let input$ = fromEvent(
     debounceTime(600),
     switchMap((val) =>
       iif(
-        () => selectedSection === "langauge",
+        () => selectedSection === "language",
         from(import("./language")),
         from(import("./currency"))
       ).pipe(

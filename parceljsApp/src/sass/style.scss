@@ -7,7 +7,8 @@ body {
   font-family: "Dosis", sans-serif;
 }
 
-h1 {
+h1,
+h3 {
   text-align: center;
 }
 
@@ -31,11 +32,20 @@ h1 {
 
 .search-container {
   text-align: center;
-  background-color: #77e4e0;
+  background-color: $base-color;
   border-radius: 0.25rem;
   margin: 10px auto;
   padding: 10px;
   width: 90%;
+}
+
+.country-item {
+  opacity: 1;
+  transition: 0.3s;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .search-input {
@@ -58,9 +68,9 @@ h1 {
 }
 .lang-btn,
 .currency-btn {
-  background-color: $base-color;
-  border: $base-color 1px solid;
-  color: $text-color;
+  background-color: #353746;
+  border: #353746 1px solid;
+  color: #fff;
   padding: 1em 1em;
   border-radius: 4px;
   margin: 5px auto;
@@ -68,9 +78,9 @@ h1 {
   font-size: 1rem;
 }
 .active {
-  background-color: #353746;
-  border: #353746 1px solid;
-  color: #fff;
+  background-color: $base-color;
+  border: $base-color 1px solid;
+  color: $text-color;
 }
 @media (min-width: 600px) {
   .country-item {

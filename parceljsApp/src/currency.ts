@@ -16,6 +16,9 @@ export default (val: string) => {
           return result;
         }, "");
         container!.innerHTML = list;
+        (document.getElementById(
+          "searchTitle"
+        ) as HTMLElement).textContent = `Countries using ${data[0]?.currencies[0]?.code}`;
       }
     })
   );

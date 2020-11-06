@@ -16,6 +16,9 @@ export default (val: string) => {
           return result;
         }, "");
         container!.innerHTML = list;
+        (document.getElementById(
+          "searchTitle"
+        ) as HTMLElement).textContent = `Countries speaking ${data[0]?.languages[0]?.name}`;
       }
     })
   );
