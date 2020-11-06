@@ -12,13 +12,13 @@ export default (val: string) => {
           "country-container"
         )[0];
         const list = data.reduce((result: string, item: Country) => {
-          result += `<div class="country-item"><img class="flag" src="${item.flag}"  alt="flag"/><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Language: ${item?.languages[0].name}</h2></div>`;
+          result += `<div class="country-item"><img class="flag" src="${item.flag}"  alt="flag"/><div class="description"><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Language: ${item?.languages[0].name}</h2></div></div>`;
           return result;
         }, "");
         container!.innerHTML = list;
         (document.getElementById(
           "searchTitle"
-        ) as HTMLElement).textContent = `Countries speaking ${data[0]?.languages[0]?.name}`;
+        ) as HTMLElement).textContent = `${data.length} Countries speaking ${data[0]?.languages[0]?.name}`;
       }
     })
   );
