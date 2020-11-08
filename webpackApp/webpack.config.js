@@ -9,7 +9,7 @@ module.exports = {
     filename: '[name].bundle.js'
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js", 'scss']
   },
   module: {
     rules: [
@@ -17,6 +17,14 @@ module.exports = {
         test: /\.ts(x?)$/,
         exclude: /(node_modules)/,
         loader: 'ts-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },

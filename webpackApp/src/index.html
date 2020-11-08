@@ -6,13 +6,22 @@
     <title>Webpack App</title>
   </head>
   <body>
-    <h1>Countries</h1>
-    <button id="lazy-loading-btn">Lazy load module on click</button>
-    <div class="search">
-      <input type="text" name="search" class="form-control" id="search" />
+    <h1>Countries Search System</h1>
+    <div class="action-container">
+      <button class="lang-btn active">🌐 Search by language</button>
+      <button class="currency-btn">💰 Search by currency</button>
     </div>
-    <div class="container">
-      <ul id="list-container"></ul>
+
+    <div class="search-container">
+      <input
+        type="text"
+        name="search"
+        class="search-input"
+        id="search"
+        placeholder="Search"
+      />
     </div>
+    <h2 id="searchTitle"></h2>
+    <div class="country-container"></div>
   </body>
 </html>
