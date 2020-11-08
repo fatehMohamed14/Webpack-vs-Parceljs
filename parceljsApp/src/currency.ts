@@ -13,14 +13,22 @@ export default (val: string) => {
     tap((data) => {
       if (data.length) {
         const list = data.reduce((result: string, item: Country) => {
-          result += `<div class="country-item"><img class="flag" src="${item.flag}"  alt="flag"/><div class="description"><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Language: ${item?.languages[0].name}</h2></div></div>`;
+          result += `<div class="country-item"><img class="flag" src="${item.flag}"  alt="flag"/><div class="description"><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Capital: ${item?.capital}</h2></div></div>`;
           return result;
         }, "");
         container!.innerHTML = list;
-        searchMessage.textContent = `Countries using ${data[0]?.currencies[0]?.code}`;
+        searchMessage.textContent = `Countries using ${getFullCurrencyName(
+          data[0]?.currencies,
+          val
+        )}`;
       } else {
         searchMessage.textContent = `No Countries found ☹️`;
       }
     })
   );
 };
+
+export function getFullCurrencyName(currencies: any[], code: string) {
+  const currency = currencies.find((e) => e.code === code.toUpperCase());
+  return currency ? currency.name : code;
+}

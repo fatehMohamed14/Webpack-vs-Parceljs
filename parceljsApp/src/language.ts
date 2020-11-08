@@ -13,16 +13,23 @@ export default (val: string) => {
     tap((data) => {
       if (data.length) {
         const list = data.reduce((result: string, item: Country) => {
-          result += `<div class="country-item"><img class="flag" src="${item.flag}"  alt="flag"/><div class="description"><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Language: ${item?.languages[0].name}</h2></div></div>`;
+          result += `<div class="country-item"><img class="flag" src="${item.flag}"  alt="flag"/><div class="description"><h2> ${item?.name} </h2>  <small> ${item?.region}</small> <h2>Capital: ${item?.capital}</h2></div></div>`;
           return result;
         }, "");
         container!.innerHTML = list;
         (document.getElementById(
           "searchTitle"
-        ) as HTMLElement).textContent = `${data.length} Countries speaking ${data[0]?.languages[0]?.name}`;
+        ) as HTMLElement).textContent = `${
+          data.length
+        } Countries speaking ${getFullLanguageName(data[0]?.languages, val)}`;
       } else {
         searchMessage.textContent = `No Countries found ☹️`;
       }
     })
   );
 };
+
+export function getFullLanguageName(languages: any[], code: string) {
+  const lang = languages.find((e) => e.iso639_1 === code);
+  return lang ? lang.name : code;
+}
