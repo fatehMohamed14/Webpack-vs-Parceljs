@@ -1,5 +1,6 @@
 import { from, fromEvent, iif, of } from "rxjs";
 import { FromEventTarget } from "rxjs/internal/observable/fromEvent";
+
 import {
   catchError,
   debounceTime,
@@ -9,6 +10,7 @@ import {
   startWith,
   switchMap,
 } from "rxjs/operators";
+import "./sass/style.scss";
 export interface Language {
   name: string;
   [prop: string]: any;
@@ -26,6 +28,8 @@ btnLang!.onclick = () => {
   selectedSection = "language";
   btnLang.classList.add("active");
   btnCurrency.classList.remove("active");
+  (document.getElementById("search") as HTMLInputElement)!.placeholder =
+    "EX: EN, ES, AR ...";
 };
 
 const btnCurrency = document.getElementsByClassName(
@@ -35,6 +39,8 @@ btnCurrency!.onclick = () => {
   selectedSection = "currency";
   btnCurrency.classList.add("active");
   btnLang.classList.remove("active");
+  (document.getElementById("search") as HTMLInputElement)!.placeholder =
+    "EX: EUR, DZD, USD ...";
 };
 
 let input$ = fromEvent(
@@ -45,7 +51,7 @@ let input$ = fromEvent(
     pluck("target", "value"),
     startWith("en"),
     filter((val) => {
-      return val.trim().length > 1;
+      return (val as string).trim().length > 1;
     }),
     distinctUntilChanged(),
     debounceTime(600),
@@ -58,7 +64,7 @@ let input$ = fromEvent(
         switchMap((m) => {
           console.log(val);
           const getCountries = m.default;
-          return getCountries(val).pipe(
+          return getCountries(val as string).pipe(
             catchError((error) => {
               console.log("Caught search error the right way!");
               return of([]);

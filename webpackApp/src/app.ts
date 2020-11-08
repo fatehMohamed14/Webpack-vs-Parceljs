@@ -28,6 +28,8 @@ btnLang!.onclick = () => {
   selectedSection = "language";
   btnLang.classList.add("active");
   btnCurrency.classList.remove("active");
+  (document.getElementById("search") as HTMLInputElement)!.placeholder =
+    "EX: EN, ES, AR ...";
 };
 
 const btnCurrency = document.getElementsByClassName(
@@ -37,6 +39,8 @@ btnCurrency!.onclick = () => {
   selectedSection = "currency";
   btnCurrency.classList.add("active");
   btnLang.classList.remove("active");
+  (document.getElementById("search") as HTMLInputElement)!.placeholder =
+    "EX: EUR, DZD, USD ...";
 };
 
 let input$ = fromEvent(
