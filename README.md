@@ -14,5 +14,18 @@ one and see the result your self, you can add more feature to the
 application to see the results for a medium or even a big size
 application
 
+### Run dev mode
+
+`npm run dev`
+
+### Build
+
+`npm run build`
+
+### Demo
+
+[Deployed app on Netlify](https://5fa84cdd7efccd00072cede0--fervent-poitras-c36eb8.netlify.app/)
+
+
 ## comparaison
 ![comparaison-table](https://github.com/fatehMohamed14/Webpack-vs-Parceljs/blob/main/compare-table.png)
