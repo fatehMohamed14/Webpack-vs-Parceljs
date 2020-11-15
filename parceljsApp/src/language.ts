@@ -19,9 +19,9 @@ export default (val: string) => {
         container!.innerHTML = list;
         (document.getElementById(
           "searchTitle"
-        ) as HTMLElement).textContent = `${
-          data.length
-        } Countries speaking ${getFullLanguageName(data[0]?.languages, val)}`;
+        ) as HTMLElement).textContent = `${data.length} ${
+          data.length === 1 ? "Country" : "Countries"
+        } speaking ${getFullLanguageName(data[0]?.languages, val)}`;
       } else {
         searchMessage.textContent = `No Countries found ☹️`;
       }
@@ -29,7 +29,7 @@ export default (val: string) => {
   );
 };
 
-export function getFullLanguageName(languages: any[], code: string) {
+function getFullLanguageName(languages: any[], code: string) {
   const lang = languages.find((e) => e.iso639_1 === code);
   return lang ? lang.name : code;
 }

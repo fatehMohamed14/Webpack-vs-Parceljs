@@ -17,10 +17,9 @@ export default (val: string) => {
           return result;
         }, "");
         container!.innerHTML = list;
-        searchMessage.textContent = `Countries using ${getFullCurrencyName(
-          data[0]?.currencies,
-          val
-        )}`;
+        searchMessage.textContent = `${data.length} ${
+          data.length === 1 ? "Country" : "Countries"
+        } using ${getFullCurrencyName(data[0]?.currencies, val)}`;
       } else {
         searchMessage.textContent = `No Countries found ☹️`;
       }
@@ -28,7 +27,7 @@ export default (val: string) => {
   );
 };
 
-export function getFullCurrencyName(currencies: any[], code: string) {
+function getFullCurrencyName(currencies: any[], code: string) {
   const currency = currencies.find((e) => e.code === code.toUpperCase());
   return currency ? currency.name : code;
 }
