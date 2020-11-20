@@ -26,7 +26,7 @@ application
 
 ### Demo
 
-[Deployed app on Netlify](https://5fa84cdd7efccd00072cede0--fervent-poitras-c36eb8.netlify.app/)
+[Deployed app on Netlify](https://findcountries.netlify.app/)
 
 
 ## comparaison

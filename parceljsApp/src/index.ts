@@ -10,7 +10,6 @@ import {
   startWith,
   switchMap,
 } from "rxjs/operators";
-import "./sass/style.scss";
 export interface Language {
   name: string;
   [prop: string]: any;
