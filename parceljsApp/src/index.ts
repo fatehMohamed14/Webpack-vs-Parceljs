@@ -61,7 +61,6 @@ let input$ = fromEvent(
         from(import("./currency"))
       ).pipe(
         switchMap((m) => {
-          console.log(val);
           const getCountries = m.default;
           return getCountries(val as string).pipe(
             catchError((error) => {
@@ -73,4 +72,4 @@ let input$ = fromEvent(
       )
     )
   )
-  .subscribe(console.log);
+  .subscribe();
